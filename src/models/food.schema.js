@@ -1,16 +1,16 @@
 'use strict';
 
 const food = (sequelize, DataTypes) => sequelize.define('food', {
-  nameFood: {
+  name: {
     type: DataTypes.STRING,
     allowNull: false,
+  },
+  typefood: {
+    type: DataTypes.STRING,
   },
   customerId: {
     type: DataTypes.INTEGER,
     allowNull: false,
-  },
-  drink:{
-    type: DataTypes.STRING,
   }
 });
 
