@@ -1,28 +1,32 @@
-'use strict';
-// 1st level packages -> we did not install anything
-// 3rd party packages
-const express = require('express');
-// local modules
-const notFoundHandler = require('../src/error-handlers/404');
-const errorHandler = require('../src/error-handlers/500');
-const logger = require('../src/middleware/logger');
-const foodRoutes = require('./routes/food'); //fixroute
-const app = express();
-// Global Middlewares
-app.use(express.json()); // access the body
-// app.use(cors()); install the package
-app.use(logger);
-// Use our routes form the routing module -> people
+'use strict'
+
+const express=require('express');
+const logger =require('./middleware/logger')
+// const errorHandler=require('./error-handlers/500')
+const routeNotFound=require('./error-handlers/404')
+const customerRoutes = require('./routes/customer');
+const foodRoutes = require('./routes/food');
+const app=express();
+app.use(express.json())
+
+app.use(logger)
+
+
+app.get('/',(req,res)=>{
+    res.send('hello m3lem 😜')
+})
+app.post('/bad', (req,res)=> {
+    let number = 12;
+    number.map(x=> console.log(x));
+    res.send('this Bad Route ');
+})
+app.use(customerRoutes);
 app.use(foodRoutes);
 
-function start(port) {
-    app.listen(port, () => console.log(`Server Is Running on Port ${port}`))
+const start=(port)=> {
+    app.listen(port, ()=> console.log(`Running on Port ${port}`))
 }
+// app.use(errorHandler)
+app.use('*',routeNotFound)
+module.exports={app,start}
 
-app.use('*', notFoundHandler);
-app.use(errorHandler);
-
-module.exports = {
-    app: app,
-    start: start
-}
