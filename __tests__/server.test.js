@@ -46,7 +46,7 @@ describe('my API Server', ()=> {
     it('200 get route /', async () => {
         const response = await request.get('/'); // async
       
-        expect(response.text).toEqual('hello');
+        expect(response.text).toEqual('ًWelcome In Home Page');
         
     
     });
