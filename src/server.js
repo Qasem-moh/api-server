@@ -13,7 +13,7 @@ app.use(logger)
 
 
 app.get('/',(req,res)=>{
-    res.send('hello m3lem 😜')
+    res.send('hello')
 })
 app.post('/bad', (req,res)=> {
     let number = 12;
@@ -24,9 +24,11 @@ app.use(customerRoutes);
 app.use(foodRoutes);
 
 const start=(port)=> {
-    app.listen(port, ()=> console.log(`Running on Port ${port}`))
+    app.listen(port, ()=> console.log(`Server is Running on Port ${port}`))
 }
 // app.use(errorHandler)
 app.use('*',routeNotFound)
-module.exports={app,start}
+module.exports={
+    app:app,
+    start:start}
 

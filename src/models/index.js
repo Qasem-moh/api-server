@@ -1,7 +1,7 @@
 'use strict';
 
 require('dotenv').config();
-const POSTGRES_URI = process.env.NODE_ENV="test" ?'sqlite:memory' :'postgres://localhost:5432/lab04';
+const POSTGRES_URI = process.env.NODE_ENV="test" ?'sqlite:memory' :'postgres://localhost:5432/qasem';
 const { Sequelize, DataTypes } = require('sequelize');
 
 const Collection = require('./lip/collection');
