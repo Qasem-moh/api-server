@@ -9,11 +9,11 @@ let reqBody={
     id:2,
     nameFood:"pizza",
     customerId:"1",
-    drink:"7up"}
+}
 
 let obj ={
     
-    name:'ahmad'
+    name:'Qasem'
 }
 
 
@@ -46,7 +46,7 @@ describe('my API Server', ()=> {
     it('200 get route /', async () => {
         const response = await request.get('/'); // async
       
-        expect(response.text).toEqual('ًWelcome In Home Page');
+        expect(response.text).toEqual('hello');
         
     
     });
