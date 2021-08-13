@@ -51,18 +51,10 @@ describe('my API Server', ()=> {
     
     });
 
-    //============================ for food 
-   
-    
-    
-
     it('Create a record using POST Food ', async () => {
        
         const response = await request.post('/food').send(reqBody); // async
         expect(response.status).toEqual(200);
-      
-        
-    
     });
 
     it('Read a record using GET for Food', async () => {
@@ -84,8 +76,6 @@ describe('my API Server', ()=> {
         
     
     });
-
-    //============================ for customer 
     
     it('Create a record using POST customer ', async () => {
        
